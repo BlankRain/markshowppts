@@ -1,2 +1,3 @@
-# markshowppts
-ppts repo for markshow
+# MarkShowPPTs
+- ppts repo for markshow
+- Hello World~
