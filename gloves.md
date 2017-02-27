@@ -6,12 +6,14 @@ url: http://github.com/blankrain
 
 transition: slide3
 
-files: /js/jy.js,/css/jy.css,/js/zoom.js
+files: /js/jy.js,/css/jy.css,/js/zoom.js,/js/node_modules/rx/dist/rx.all.js,/js/node_modules/jquery/dist/jquery.js
 
 theme: moon
 
-[幻片]
+[幻片 data-on-enter="incallback" ]
 # Gloves 介绍
+Time:
+x {:#abc}
 ---------
 |Key|Value|
 |-|-|
@@ -20,7 +22,11 @@ theme: moon
 |Wo | 我 |
 |Ai | 爱 |
 |Ni | 你 |
-
+<script>
+function incallback(){
+Rx.Observable.interval(1000).subscribe((x)=>{$('#abc').html(x)})
+}
+</script>
 [幻片]
 ## MarkDown介绍
 * ### 什么是MarkDown?
