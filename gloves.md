@@ -6,7 +6,7 @@ url: http://github.com/blankrain
 
 transition: slide3
 
-files: /js/jy.js,/css/jy.css,/js/zoom.js,/js/node_modules/rx/dist/rx.all.js,/js/node_modules/jquery/dist/jquery.js,/socket.io/socket.io.js
+files: /js/zoom.js,/js/node_modules/rx/dist/rx.all.js,/js/node_modules/jquery/dist/jquery.js,/socket.io/socket.io.js
 
 theme: moon
 
@@ -22,53 +22,42 @@ x {:#abc}
 |Wo | 我 |
 |Ai | 爱 |
 |Ni | 你 |
+
+[幻片 data-on-enter="incallback"]
+<style>
+  .inlove {
+    color:rgba(255, 192, 203, 0.95);
+  }
+  .intouch {
+    font-size:200%;
+  }
+</style>
+紫 {:#zi}
+
+薇 {:#we}
+
+我 {:#wo}
+
+爱 {:#ai}
+
+你 {:#ni}
 <script>
 function incallback(){
   (function(window, document, io){
     var socket = io.connect(location.host+"/touchevent");
-        socket.on("clickdata", socketIO);
+        socket.on("clickdata", byFelix);
       
   }(window, document, io));
+var o=[zi,we,wo,ai,ni]
 
-Rx.Observable.interval(1000).subscribe((x)=>{$('#abc').html(x)})
+Rx.Observable.interval(1000).subscribe((x)=>{$(o[x % o.length]).toggleClass('inlove')})
 }
-function socketIO(d){
-  console.log('data on'+JSON.stringify(d));
+function byFelix(d){
+  $('#'+d.k.toLowerCase()).toggleClass('intouch');
+  Rx.Observable.from($('#'+d.k.toLowerCase())).delay(500).subscribe((x)=>{$(x).removeClass('intouch')});
 }
 </script>
-[幻片]
-## MarkDown介绍
-* ### 什么是MarkDown?
-Markdown 是 约翰·格鲁伯(John Gruber)创建的一门语法,它允许人们“使用易读易写的纯文本格式编写文档”. 它的关注点在写,而不是格式.
-* ### MarkDown语法介绍.
-  [简书语法资源](http://www.jianshu.com/p/q81RER)
 
-  [Segmentfault资源](https://segmentfault.com/markdown)
-
-  [英文译文版](http://maogm.com/blog/markdown-syntax.html)
-
-|名称 | 符号 | 意义 |
-|----|----|----|
-|标题| # | 一级标题|
-|标题| ## | 二级标题|
-|标题| ### | 三级标题|
-|标题| #### | 四级标题|
-|标题| ##### | 五级标题|
-|列表| * |列表|
-|列表| - |列表|
-|列表| 1. |有序列表|
-|链接| `[显示](http://abc) `|链接|
-|图片| `![](http://tupiandizhi) `|图片|
-|引用| > |引用|
-|粗体| `*粗粗的文字*`|粗粗的文字|
-|斜体| `**粗粗的文字**`|斜斜的文字|
-|表头|&#124; 表头 &#124; 表头 &#124;|表头|
-|表体|&#124; 表体 &#124; 表体 &#124;|表体|
-`
-注：-、1. # 都要和文本之间要保留一个字符的空格
-`
-
-以上语法已可满足90%的要求,更多其他细节请查看资源.
 
 [幻片]
 ## PPT介绍
