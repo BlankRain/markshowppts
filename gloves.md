@@ -6,7 +6,7 @@ url: http://github.com/blankrain
 
 transition: slide3
 
-files: /js/jy.js,/css/jy.css,/js/zoom.js,/js/node_modules/rx/dist/rx.all.js,/js/node_modules/jquery/dist/jquery.js
+files: /js/jy.js,/css/jy.css,/js/zoom.js,/js/node_modules/rx/dist/rx.all.js,/js/node_modules/jquery/dist/jquery.js,/socket.io/socket.io.js
 
 theme: moon
 
@@ -24,7 +24,16 @@ x {:#abc}
 |Ni | 你 |
 <script>
 function incallback(){
+  (function(window, document, io){
+    var socket = io.connect(location.host+"/touchevent");
+        socket.on("clickdata", socketIO);
+      
+  }(window, document, io));
+
 Rx.Observable.interval(1000).subscribe((x)=>{$('#abc').html(x)})
+}
+function socketIO(d){
+  console.log('data on'+JSON.stringify(d));
 }
 </script>
 [幻片]
