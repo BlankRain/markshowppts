@@ -6,7 +6,7 @@ url: http://github.com/blankrain
 
 transition: slide3
 
-files: /js/zoom.js,/js/node_modules/rx/dist/rx.all.js,/js/node_modules/jquery/dist/jquery.js,/socket.io/socket.io.js
+files: /js/zoom.js,/js/node_modules/rx/dist/rx.all.js,/js/node_modules/jquery/dist/jquery.js,/socket.io/socket.io.js,/js/snake-js.js,/js/markshowmorse.js
 
 theme: moon
 
@@ -58,6 +58,67 @@ function byFelix(d){
 }
 </script>
 
+
+
+[幻片 data-on-enter="gameincallback"]
+
+<div id="gameDiv"></div>
+<script>
+var game=null;
+function gameincallback(){
+  $("#gameDiv").html('')
+  var gameDiv = document.getElementById("gameDiv");
+	var settings = {
+		    frameInterval : 120,
+		    backgroundColor : '#152e4f',
+        snakeColor:'green',
+        scoreBoardColor:'#052e4f',
+        scoreTextColor:'yellow'
+	};
+
+	game = new SnakeJS(gameDiv, settings);
+  addGlovesSupport();
+}
+
+function addGlovesSupport(){
+  (function(window, document, io){
+    var socket = io.connect(location.host+"/touchevent");
+        socket.on("clickdata", glovesGame);
+      
+  }(window, document, io));
+}
+function glovesGame(data){
+  var em={'Zi':KeyMap.e,'We':KeyMap.s,'Wo':KeyMap.d,'Ai':KeyMap.f,'Ni':KeyMap.enter};
+  var e={keyCode:em[data.k]};
+  $(window).trigger('jq-keydown',e);
+}
+
+</script>
+
+[幻片 data-on-enter="morseincallback"]
+### Morse Code
+<div class="">
+    <input type="text" class="morseinput"/>
+    
+    <lable class="morseinput"></lable>
+</div>
+<style>
+input.morseinput{
+    color: green;
+    width: 100%;
+    font-size:larger;
+    margin-top:20px;
+    margin-bottom:20px;
+    display:block;
+}
+</style>
+<script>
+function morseincallback(){
+  $('input.morseinput').on('input',function(x){
+    $('lable.morseinput').html(morse.decode($('input.morseinput').val()));
+  });
+}
+</script>
 
 [幻片]
 ## PPT介绍
