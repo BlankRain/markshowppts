@@ -20,21 +20,21 @@ usemathjax: yes
 ## S表达式
 ### 看破红尘出家数括号 
 
-[core.clj]("https://github.com/clojure/clojure/blob/master/src/clj/clojure/core.clj")
+[core.clj](https://github.com/clojure/clojure/blob/master/src/clj/clojure/core.clj)
 
-[slide]("b")
+[slide](b)
 
 xml json s-exp
 
 ## xml ant build.xml
 
-[build.xml]("https://github.com/h5bp/ant-build-script/blob/master/build.xml")
+[build.xml](https://github.com/h5bp/ant-build-script/blob/master/build.xml)
 
 ## json npm yarn packages.json
-[packages.json]("https://github.com/yarnpkg/yarn/blob/master/package.json")
+[packages.json](https://github.com/yarnpkg/yarn/blob/master/package.json)
 
 ## s-exp project.clj
-[project.clj]("https://github.com/technomancy/leiningen/blob/master/project.clj")
+[project.clj](https://github.com/technomancy/leiningen/blob/master/project.clj)
 
 [slide]("d")
 
