@@ -1,25 +1,34 @@
 title: clojure 介绍
+
 speaker: Brain
+
 url: https://github.com/clojure/clojure
+
 transition: slide3
+
 files: /js/demo.js,/css/demo.css,/js/zoom.js
+
 theme: moon
+
 usemathjax: yes
 
 
 [slide]
+
 # Lisp and Clojure
 
 ## S表达式
 ### 看破红尘出家数括号 
 
-<iframe src="https://github.com/clojure/clojure/blob/master/src/clj/clojure/core.clj">
+(core.clj)["https://github.com/clojure/clojure/blob/master/src/clj/clojure/core.clj"]
 
 [slide]
 
 xml json s-exp
+
 ## xml ant build.xml
-<iframe src="https://github.com/h5bp/ant-build-script/blob/master/build.xml">
+
+(build.xml)"https://github.com/h5bp/ant-build-script/blob/master/build.xml">
 
 ## json npm yarn packages.json
 <iframe src="https://github.com/yarnpkg/yarn/blob/master/package.json">
