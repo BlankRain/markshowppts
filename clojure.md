@@ -13,7 +13,7 @@ theme: moon
 usemathjax: yes
 
 
-[slide]("a")
+<!-- [slide]("a")-->
 
 # Lisp and Clojure
 
@@ -22,9 +22,9 @@ usemathjax: yes
 
 [core.clj](https://github.com/clojure/clojure/blob/master/src/clj/clojure/core.clj)
 
-[slide](b)
+<!-- [slide]("a")-->
 
-xml json s-exp
+# xml json s-exp
 
 ## xml ant build.xml
 
@@ -36,8 +36,7 @@ xml json s-exp
 ## s-exp project.clj
 [project.clj](https://github.com/technomancy/leiningen/blob/master/project.clj)
 
-[slide]("d")
-
+<!-- [slide]("a")-->
 # List
 '(a b c d)
 
@@ -57,7 +56,8 @@ xml json s-exp
         <arg2></arg2>
    </functionname>
 ```
-[slide]("e")
+<!-- [slide]("a")-->
+
 #　ast 
 ```
 (func1 arg1  (func2 arg2   (func3 arg3)))
